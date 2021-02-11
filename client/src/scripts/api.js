@@ -1,20 +1,22 @@
 import $ from 'jquery';
+import * as config from './config';
 
 function callApi(url, method = 'GET', data = {}) {
-    $.ajax({
+    return $.ajax({
         type: method,
-        url: url,
+        url: config.API_URL + url,
         dataType: "json",
         contentType: 'application/json',
         data: data,
-        success: function (data, textStatus, xhr) {
-            return data;
+        async: false,
+        success: function (res, textStatus, xhr) {
+            return res.data;
         },
     });
 }
 
-function getAllTasks() {
-    return callApi('/tasks');
+async function getAllTasks() {
+    return await callApi('/tasks');
 }
 
 function getTasksById(id) {
@@ -25,6 +27,18 @@ function addTask(data) {
     return callApi('/tasks', 'POST', data);
 }
 
+function updateTask(id, data) {
+    return callApi(`/tasks/${id}`, 'PATCH', data);
+}
+
+function deleteTask(id) {
+    return callApi(`/tasks/${id}`, 'DELETE');
+}
+
 export {
-    getAllTasks
+    getAllTasks,
+    getTasksById,
+    addTask,
+    updateTask,
+    deleteTask
 };

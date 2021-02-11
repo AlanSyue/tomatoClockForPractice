@@ -1,17 +1,15 @@
-function getTodolist() {
-    var todolist = JSON.parse(localStorage.getItem("noteStr"));
-    if(!todolist){
-        return [];
-    }
-    return todolist;
+import * as api from '../../api';
+async function getTodolist() {
+    var res = await api.getAllTasks();
+    return res.data.tasks;
 }
 
-function getTodolistByStatus(status){
-    var noteArray = getTodolist();
+async function getTodolistByStatus(status){
+    var noteArray = await getTodolist();
     var output = [];
     for (var i = 0; i < noteArray.length; i++) {
         var row = noteArray[i];
-        if (row.status == status) {
+        if (row.completed == status) {
             output.push(row);
         }
     }

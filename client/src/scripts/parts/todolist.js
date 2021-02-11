@@ -1,7 +1,6 @@
 import $ from "jquery";
 import {
     renderList,
-    createItem
 } from "./todolist/view";
 import {
     storeNote,
@@ -11,10 +10,11 @@ import {
     editItemById,
     getTodolistByStatus
 } from "./todolist/model";
+import * as api from '../api';
 
-function init() {
+async function init() {
     //初始化頁面
-    showNotFinishList();
+    await showNotFinishList();
     $(".top-left .left").click(showNotFinishList);
     $(".top-left .right").click(showfinishList);
     $("#add-button").click(addNote);
@@ -23,11 +23,11 @@ function init() {
     $("ul").on("click", ".check-btn", checkItem);
 }
 
-function showNotFinishList() {
+async function showNotFinishList() {
     $(".top-left .left").css("opacity", "0.5");
     $(".top-left .right").css("opacity", "1");
     var status = false;
-    var noteArray = getTodolistByStatus(status);
+    var noteArray = await getTodolistByStatus(status);
     renderList(noteArray);
 }
 
@@ -45,7 +45,10 @@ function addNote() {
     if (inputValue == "") {
         return ;
     }
-    storeNote(inputValue);
+    api.addTask({
+        content: inputValue
+    })
+    // storeNote(inputValue);
     showNotFinishList();
 }
 

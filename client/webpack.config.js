@@ -38,7 +38,7 @@ var config = {
       contentBase: path.join(__dirname, 'dist'),
       compress: true,
       open: true,
-      port: 3000
+      port: 3100
     }
 };
 
