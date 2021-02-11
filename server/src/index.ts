@@ -10,13 +10,31 @@ const startServer = () => {
     app.use(express.json());
 
     // register routes
-    app.get("/", function (req: Request, res: Response) {
-        res.status(200).json({ status: 200, data: 'hello world' });
+    app.get("/api/tasks", async function (req: Request, res: Response) {
+        const taskRepository = getRepository(Task);
+        const tasks = await taskRepository.find();
+        res.status(200).json({ status: 200, data: tasks });
     });
 
-    app.get("/api/tasks", async function (req: Request, res: Response) {
-        const tasks = await getRepository(Task).find();
-        res.status(200).json({ status: 200, data: tasks });
+    app.post("/api/tasks", async function (req: Request, res: Response) {
+        const taskRepository = getRepository(Task);
+        const task = await taskRepository.create(req.body)
+        const result = await taskRepository.save(task);
+        res.status(200).json({ status: 200, data: result });
+    });
+
+    app.patch("/api/tasks/:id", async function (req: Request, res: Response) {
+        const taskRepository = getRepository(Task);
+        const task = await taskRepository.findOne(req.params.id);
+        taskRepository.merge(task, req.body);
+        const result = await taskRepository.save(task);
+        res.status(200).json({ status: 200, data: result });
+    });
+
+    app.delete("/api/tasks/:id", async function (req: Request, res: Response) {
+        const taskRepository = getRepository(Task);
+        await taskRepository.delete(req.params.id);
+        res.status(200).json({ status: 200, data: {} });
     });
 
     // start express server
