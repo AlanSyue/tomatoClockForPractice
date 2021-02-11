@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-icon-list">
+      <rect width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="icon-list" clip-path="url(#clip-icon-list)">
+    <g id="Group_210" data-name="Group 210" transform="translate(-4708 -6538)">
+      <path id="Path" d="M0,0H22V4H0Z" transform="translate(4721 6546)" fill="#f08448"/>
+      <path id="Path-2" data-name="Path" d="M0,0H22V4H0Z" transform="translate(4721 6556)" fill="#f08448"/>
+      <path id="Path-3" data-name="Path" d="M0,0H22V4H0Z" transform="translate(4721 6566)" fill="#f08448"/>
+      <path id="Path-4" data-name="Path" d="M0,0H4V4H0Z" transform="translate(4713 6546)" fill="#6c9460"/>
+      <path id="Path-5" data-name="Path" d="M0,0H4V4H0Z" transform="translate(4713 6556)" fill="#6c9460"/>
+      <path id="Path-6" data-name="Path" d="M0,0H4V4H0Z" transform="translate(4713 6566)" fill="#6c9460"/>
+      <path id="Path-7" data-name="Path" d="M0,0H4V4H0Z" transform="translate(4739 6546)" fill="#6c9460"/>
+      <path id="Path-8" data-name="Path" d="M0,0H4V4H0Z" transform="translate(4739 6556)" fill="#6c9460"/>
+      <path id="Path-9" data-name="Path" d="M0,0H4V4H0Z" transform="translate(4739 6566)" fill="#6c9460"/>
+    </g>
+  </g>
+</svg>

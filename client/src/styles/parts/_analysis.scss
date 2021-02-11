@@ -1,0 +1,211 @@
+#analysis {
+  padding: 60px 40px;
+  h3 {
+    font-style: Noto Sans TC;
+    font-weight: 400;
+    font-size: 270%;
+    letter-spacing: 0;
+    color: #e8e8e8;
+    opacity: 1;
+  }
+  h4 {
+    font-style: Noto Sans TC Regular;
+    font-weight: normal;
+    color: #e8e8e8;
+  }
+  span {
+    font-style: Noto Sans TC;
+    opacity: 0.5;
+  }
+  .report {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .today,
+    .week {
+      width: 48%;
+      top: 50px;
+    }
+
+    .content {
+      font-style: Noto Sans TC;
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px 0;
+      height: 165px;
+      text-align: center;
+      border: 1px solid #dedede;
+      border-radius: 8px;
+      margin-top: 16px;
+      .green-number,
+      .orange-number {
+        font-size: 80px;
+      }
+      .green-number {
+        color: $color-primary2;
+      }
+      .orange-number {
+        color: $color-secondary2;
+      }
+      .middle-line {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1px;
+        height: 60%;
+        background-color: #dedede;
+      }
+    }
+  }
+  .chart {
+    .number {
+      width: 18px;
+      height: 22px;
+      vertical-align: text-bottom;
+      p {
+        display: inline-flex;
+        height: 130%;
+        top:60px;
+      }
+    }
+    h4 {
+      text-align: center;
+      padding-top: 100px;
+      opacity: 0.5;
+    }
+    .square {
+      display: flex;
+      border: solid 1px;
+      width: 500px;
+      height: 280px;
+      border-top: none;
+      border-right: none;
+      position: relative;
+      left: -20px;
+      bottom: 0;
+      color: #e8e8e8;
+      .square1 {
+        border: solid 1px;
+        background-color: $color-primary2;
+        width: 20px;
+        height: 90px;
+        position: absolute;
+        left: 60px;
+        top: 189px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 98px;
+        }
+      }
+      .square2 {
+        border: solid 1px;
+        background-color: $color-primary2;
+        width: 20px;
+        height: 57px;
+        position: absolute;
+        left: 110px;
+        top: 222px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 65px;
+        }
+      }
+      .square3 {
+        border: solid 1px;
+        background-color: $color-primary2;
+        width: 20px;
+        height: 108px;
+        position: absolute;
+        left: 160px;
+        top: 171px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 116px;
+        }
+      }
+      .square4 {
+        border: solid 1px;
+        background-color: $color-primary2;
+        width: 20px;
+        height: 33px;
+        position: absolute;
+        left: 210px;
+        top: 246px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 41px;
+        }
+      }
+      .square5 {
+        border: solid 1px;
+        background-color: $color-primary2;
+        width: 20px;
+        height: 130px;
+        position: absolute;
+        left: 260px;
+        top: 149px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 138px;
+        }
+      }
+      .square6 {
+        border: solid 1px;
+        background-color: $color-primary2;
+        width: 20px;
+        height: 70px;
+        position: absolute;
+        left: 310px;
+        top: 209px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 78px;
+        }
+      }
+      .square7 {
+        border: solid 1px;
+        background-color: $color-secondary2;
+        width: 20px;
+        height: 105px;
+        position: absolute;
+        left: 360px;
+        top: 174px;
+        border-width: 0px;
+
+        p {
+          text-align: center;
+          opacity: 0.5;
+          color: #e8e8e8;
+          top: 113px;
+        }
+      }
+    }
+  }
+}

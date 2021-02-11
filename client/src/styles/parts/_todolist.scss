@@ -1,0 +1,140 @@
+#todolist {
+  position: absolute;
+  z-index: 10;
+  .content {
+    padding: 40px 40px;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px 40px 0px;
+    h1 {
+      display: flex;
+      margin: 0px;
+      color: #e8e8e8;
+      opacity: 1;
+    }
+    .top-left {
+      display: flex;
+
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        &.left {
+          padding-right: 40px;
+        }
+        &.right {
+          opacity: 0.5;
+          cursor: pointer;
+        }
+      }
+      button:hover {
+        font-weight: bold;
+      }
+    }
+  }
+  .add-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 0px 40.5px 0px;
+    input[type="text"] {
+      border: none;
+      outline: none;
+      width: 560px;
+      height: 56px;
+      -webkit-border-radius: 28px;
+      border-radius: 28px;
+      color: black;
+      padding: 0px 0px 0px 30px;
+    }
+    button {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      border: none;
+      height: 40px;
+      width: 48px;
+      border-radius: 999px;
+      outline: none;
+      text-align: center;
+      font-weight: bold;
+      padding: 2px;
+      background-color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    list-style: none;
+    overflow: auto;
+    height:584px;
+    //-webkit-overflow-scrolling: touch;
+  }
+
+  .item-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 73px;
+    .block-left {
+      display: flex;
+      padding-top: 16.5px;
+    }
+    .block-right {
+      display: flex;
+      padding-top: 19.5px;
+      .fa-pen {
+        width: 16px;
+        height: 16.03px;
+        margin-right: 19px;
+        cursor: pointer;
+      }
+      .fa-times {
+        width: 10;
+        height: 10;
+        margin-right: 7px;
+        cursor: pointer;
+      }
+    }
+
+    .word {
+      padding-left: 16px;
+      padding-top: 4px;
+      //box-sizing: border-box;
+      font-size: 16px;
+      &.finished {
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
+    }
+  }
+  .check-btn {
+    top: 1px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: $color-primary;
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+    .check {
+      opacity: 0;
+      &.finished {
+        opacity: 1;
+      }
+    }
+    :hover {
+      opacity: 1;
+    }
+    &.finished{
+      opacity: 0.5;
+    }
+  }
+
+  .separate {
+    border: 1px solid #ffffff;
+    opacity: 0.2;
+  }
+}

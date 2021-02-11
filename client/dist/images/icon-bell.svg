@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-icon-bell">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="icon-bell" clip-path="url(#clip-icon-bell)">
+    <g id="Group_81" data-name="Group 81" transform="translate(-342 -393)">
+      <g id="Group_82" data-name="Group 82" transform="translate(345 395)">
+        <path id="Path_5" data-name="Path 5" d="M18,8A6,6,0,1,0,6,8c0,7-3,9-3,9H21s-3-2-3-9" transform="translate(-3 -2)" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Path_6" data-name="Path 6" d="M13.73,21a2,2,0,0,1-3.46,0" transform="translate(-3 -2)" fill="none" stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

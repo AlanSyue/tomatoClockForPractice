@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="316" viewBox="0 0 1000 316">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_52" data-name="Rectangle 52" width="1000" height="316" transform="translate(260 584)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <circle id="Ellipse_97" data-name="Ellipse 97" cx="600" cy="600" r="600" transform="translate(80 615)" fill="#f08448"/>
+    </clipPath>
+    <clipPath id="clip-tomato--orange">
+      <rect width="1000" height="316"/>
+    </clipPath>
+  </defs>
+  <g id="tomato--orange" clip-path="url(#clip-tomato--orange)">
+    <g id="Mask_Group_17" data-name="Mask Group 17" transform="translate(-260 -584)" clip-path="url(#clip-path)">
+      <g id="tomato">
+        <circle id="Ellipse_95" data-name="Ellipse 95" cx="600" cy="600" r="600" transform="translate(160 640)" fill="#e4793e"/>
+        <g id="Mask_Group_16" data-name="Mask Group 16" transform="translate(80 25)" clip-path="url(#clip-path-2)">
+          <circle id="Ellipse_96" data-name="Ellipse 96" cx="552.5" cy="552.5" r="552.5" transform="translate(174 635)" fill="#f08448"/>
+        </g>
+        <line id="Line_54" data-name="Line 54" y2="35" transform="translate(640 796.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="30"/>
+        <line id="Line_55" data-name="Line 55" y2="35" transform="translate(880 796.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="30"/>
+        <line id="Line_56" data-name="Line 56" x2="48" transform="translate(736.5 854.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="6"/>
+        <line id="Line_57" data-name="Line 57" y1="6.442" x2="125.959" transform="translate(707.279 615.622) rotate(30)" fill="none" stroke="#6c9460" stroke-linecap="round" stroke-width="40"/>
+        <line id="Line_58" data-name="Line 58" x2="125.959" y2="6.442" transform="translate(816.363 621.2) rotate(150)" fill="none" stroke="#6c9460" stroke-linecap="round" stroke-width="40"/>
+        <ellipse id="Ellipse_98" data-name="Ellipse 98" cx="23" cy="18.5" rx="23" ry="18.5" transform="translate(910.99 686.377) rotate(16)" fill="#fff" opacity="0.16"/>
+        <line id="Line_59" data-name="Line 59" y2="40" transform="translate(760.5 600.5)" fill="none" stroke="#5c8051" stroke-linecap="round" stroke-width="30"/>
+      </g>
+    </g>
+  </g>
+</svg>

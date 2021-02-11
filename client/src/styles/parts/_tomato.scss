@@ -1,0 +1,149 @@
+#tomato {
+	.countDown {
+		.clock {
+			position: absolute;
+			top: 40px;
+			padding-top: 8px;
+			left: 120px;
+			width: 451px;
+			height: 252px;
+			font-size: 200px;
+			color: $color-light3;
+			text-align: left;
+		}
+		.bell, .cancel {
+			position: absolute;
+			top: 300px;
+			width: 48px;
+			height: 48px;
+			border: 2px solid $color-light3;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			background-color: $color-primary;
+			outline: none;
+			cursor: pointer;
+		}
+		.bell:hover, .cancel:hover {
+			filter: brightness(2);
+		}
+
+		.bell {
+			left: 250px;
+		}
+		.cancel {
+			left: 394px;
+		}
+		.playAndPause {
+			position: absolute;
+			top: 292px;
+			left: 314px;
+			width: 64px;
+			height: 64px;
+			border: 1px solid $color-light3;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			outline: none;
+			font-size: 22px;
+			cursor: pointer;
+		}
+		.playAndPause:hover {
+			filter: brightness(0.8);
+		}
+		.orange.playAndPause path{
+			color: $color-secondary2;
+		}
+		.green.playAndPause path{
+			color: $color-primary2;
+		}
+	}
+
+	.theListStyle {
+		list-style: none;
+		.circleToCheck {
+			position: absolute;
+			border: 2px solid $color-light3;
+			border-radius: 50%;
+			outline: none;
+			width: 24px;
+			height: 24px;
+			background-color: $color-primary;
+			cursor: pointer;
+			.finishCheck {
+				opacity: 0;
+			}
+			:hover {
+				opacity: 1;
+			}
+			.checkONE svg {
+				font-size: 27px;
+			}
+		}
+		
+		.fourThings {
+			position: absolute;
+			left: 40px;
+			font-size: 16px;
+			color: $color-light3;
+			font-weight: 200;
+			text-align: left;
+			padding-top: 3px;
+			display: flex;
+			justify-content: center;
+		}
+		.littleList {
+			top: 175px;
+			height: 57px;
+			left: 728px;
+		}
+		li:first-child {
+			top: 80px;
+		}
+
+		.circleONE {
+			width: 40px;
+			height: 40px;
+			left: 720px;
+		}
+		#listONE {
+			left: 776px;
+			font-size: 32px;
+		}
+	}
+
+	.takeaBreak {
+		position: absolute;
+		top: 80px;
+		padding-top: 8px;
+		left: 720px;
+		font-size: 80px;
+		color: $color-light3;
+		font-weight: 500;
+		letter-spacing: 2px;
+	}
+	.nextEffort {
+		position: absolute;
+		top: 200px;
+		padding-top: 8px;
+		left: 720px;
+		font-size: 30px;
+		color: $color-light3;
+		font-weight: 300;
+		letter-spacing: 2px;
+	}
+
+	.bottomPic {
+		position: absolute;
+		left: 50%;
+		bottom: -2px;
+		width: 100%;
+		transform: translate(-50%, 0);
+		display: flex;
+		justify-content: center;
+		.tomatoImg {
+			max-width: 991px;
+			min-height: 316px;
+		}
+	}
+}

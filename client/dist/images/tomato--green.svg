@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="316" viewBox="0 0 1000 316">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_54" data-name="Rectangle 54" width="1000" height="316" transform="translate(1876 6662)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <circle id="Ellipse_101" data-name="Ellipse 101" cx="600" cy="600" r="600" transform="translate(80 615)" fill="#f08448"/>
+    </clipPath>
+    <clipPath id="clip-tomato--green">
+      <rect width="1000" height="316"/>
+    </clipPath>
+  </defs>
+  <g id="tomato--green" clip-path="url(#clip-tomato--green)">
+    <g id="Mask_Group_21" data-name="Mask Group 21" transform="translate(-1876 -6662)" clip-path="url(#clip-path)">
+      <g id="Group_204" data-name="Group 204" transform="translate(1616 6078)">
+        <g id="Group_191" data-name="Group 191" transform="translate(80)">
+          <g id="Group_189" data-name="Group 189" transform="translate(0 25)">
+            <circle id="Ellipse_99" data-name="Ellipse 99" cx="600" cy="600" r="600" transform="translate(80 615)" fill="#618556"/>
+            <g id="Mask_Group_20" data-name="Mask Group 20" clip-path="url(#clip-path-2)">
+              <circle id="Ellipse_100" data-name="Ellipse 100" cx="552.5" cy="552.5" r="552.5" transform="translate(174 635)" fill="#6c9460"/>
+            </g>
+            <line id="Line_60" data-name="Line 60" y2="35" transform="translate(577.433 787.475) rotate(85)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="30"/>
+            <line id="Line_61" data-name="Line 61" y2="35" transform="translate(782.567 787.475) rotate(-85)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="30"/>
+            <line id="Line_62" data-name="Line 62" x2="48" transform="translate(656.5 829.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="6"/>
+          </g>
+          <g id="Group_190" data-name="Group 190" transform="translate(565.659 -287.801) rotate(45)">
+            <line id="Line_63" data-name="Line 63" y1="6.442" x2="125.959" transform="matrix(0.966, -0.259, 0.259, 0.966, 682.388, 595.245)" fill="none" stroke="#dfe2b6" stroke-linecap="round" stroke-width="40"/>
+            <line id="Line_64" data-name="Line 64" x2="125.959" y2="6.442" transform="matrix(-0.259, 0.966, -0.966, -0.259, 763.467, 522.056)" fill="none" stroke="#dfe2b6" stroke-linecap="round" stroke-width="40"/>
+          </g>
+          <line id="Line_65" data-name="Line 65" y2="40" transform="translate(680.5 600.5)" fill="none" stroke="#c8cc90" stroke-linecap="round" stroke-width="30"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

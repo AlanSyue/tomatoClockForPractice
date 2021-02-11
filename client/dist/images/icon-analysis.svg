@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-icon-analysis">
+      <rect width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="icon-analysis" clip-path="url(#clip-icon-analysis)">
+    <g id="Group_211" data-name="Group 211" transform="translate(-4810 -6526)">
+      <rect id="Rectangle-path" width="36" height="4" transform="translate(4812 6557)" fill="#6c9460"/>
+      <path id="Path" d="M0,0H4V15H0Z" transform="translate(4816 6542)" fill="#f08448"/>
+      <path id="Path-2" data-name="Path" d="M0,0H4V10H0Z" transform="translate(4824 6547)" fill="#f08448"/>
+      <path id="Path-3" data-name="Path" d="M0,0H4V19H0Z" transform="translate(4832 6538)" fill="#f08448"/>
+      <path id="Path-4" data-name="Path" d="M0,0H4V26H0Z" transform="translate(4840 6531)" fill="#f08448"/>
+      <rect id="Rectangle_38" data-name="Rectangle 38" width="4" height="4" transform="translate(4816 6542)" fill="#6c9460"/>
+      <rect id="Rectangle_39" data-name="Rectangle 39" width="4" height="4" transform="translate(4824 6547)" fill="#6c9460"/>
+      <rect id="Rectangle_40" data-name="Rectangle 40" width="4" height="4" transform="translate(4832 6538)" fill="#6c9460"/>
+      <rect id="Rectangle_41" data-name="Rectangle 41" width="4" height="4" transform="translate(4840 6531)" fill="#6c9460"/>
+    </g>
+  </g>
+</svg>
