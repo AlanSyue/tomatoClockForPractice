@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bd9af49d-1cc9-4137-8854-5257ff157246/deploy-status)](https://app.netlify.com/sites/itseed17-tomato-example/deploys)
-
 ## TomatoClock (蕃茄鐘)
 ![tomato view](https://i.imgur.com/2Ti64ZI.png)
 ![todolust view](https://i.imgur.com/G3lRqXs.png)
