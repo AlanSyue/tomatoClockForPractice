@@ -61,7 +61,7 @@ const startServer = () => {
             [name: string]: Report
         }
         interface ResponseData {
-            today: {
+            todayReport: {
                 createdTotal: number,
                 completedTotal: number,
             },
@@ -115,7 +115,7 @@ const startServer = () => {
         }, { createdTotal: 0, completedTotal: 0 })
         const sortByDateAsc = (r1: Report, r2: Report): number => (r1.date < r2.date ? -1 : 1);
         const responseData: ResponseData = {
-            today: {
+            todayReport: {
                 createdTotal: reportMap[todayString].createdTotal,
                 completedTotal: reportMap[todayString].completedTotal
             },
