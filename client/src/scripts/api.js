@@ -15,24 +15,33 @@ function callApi(url, method = 'GET', data = {}) {
     });
 }
 
-async function getAllTasks() {
-    return await callApi('/tasks');
+async function getAllTasks(needFilter = false, filterStatus = null) {
+    let url = '/tasks';
+    if (needFilter) {
+        const status = filterStatus == true ? 'completed' : 'uncompleted';
+        url += `?filterType=${status}`;
+    }
+    return await callApi(url);
 }
 
-function getTasksById(id) {
-    return callApi(`/tasks/${id}`);
+async function getTasksById(id) {
+    return await callApi(`/tasks/${id}`);
 }
 
-function addTask(data) {
-    return callApi('/tasks', 'POST', data);
+async function addTask(data) {
+    return await callApi('/tasks', 'POST', data);
 }
 
-function updateTask(id, data) {
-    return callApi(`/tasks/${id}`, 'PATCH', data);
+async function updateTask(id, data) {
+    return await callApi(`/tasks/${id}`, 'PATCH', data);
 }
 
-function deleteTask(id) {
-    return callApi(`/tasks/${id}`, 'DELETE');
+async function deleteTask(id) {
+    return await callApi(`/tasks/${id}`, 'DELETE');
+}
+
+async function getReport() {
+    return await callApi('/reports')
 }
 
 export {
@@ -40,5 +49,6 @@ export {
     getTasksById,
     addTask,
     updateTask,
-    deleteTask
+    deleteTask,
+    getReport
 };

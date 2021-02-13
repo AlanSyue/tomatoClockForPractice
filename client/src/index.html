@@ -31,15 +31,15 @@
                 <h3>專注度分析</h3>
                 <div class="report">
                     <div class="today">
-                        <h4>今日 <span>2020/3/30</span></h4>
+                        <h4>今日 <span id="today-text"></span></h4>
                         <div class="content">
                             <div class="todo-area">
-                                <p class="green-number">9</p>
+                                <p id="today-total" class="green-number"></p>
                                 <p class="description">代辦事項</p>
                             </div>
                             <div class="middle-line"></div>
                             <div class="finish-area">
-                                <p class="orange-number">7</p>
+                                <p id="today-completed" class="orange-number"></p>
                                 <p class="description">已完成</p>
                             </div>
                         </div>
@@ -48,12 +48,12 @@
                         <h4>本周</h4>
                         <div class="content">
                             <div class="todo-area">
-                                <p class="green-number">54</p>
+                                <p id="week-total" class="green-number"></p>
                                 <p class="description">代辦事項</p>
                             </div>
                             <div class="middle-line"></div>
                             <div class="finish-area">
-                                <p class="orange-number">48</p>
+                                <p id="week-completed" class="orange-number"></p>
                                 <p class="description">已完成</p>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="chart">
-                    <h4>2019.07.07 ~ 2019.07.13 </h4>
+                    <h4 id="week-range-text"></h4>
                     <div class="report">
                         <div class="number">
                             <p>14</p>
@@ -74,27 +74,27 @@
                             <p>2</p>
                             <p>0</p>
                         </div>
-                        <div class="square">
+                        <div class="square" id="week-report-date">
                             <div class="square1">
-                                <p>7/7</p>
+                                <p></p>
                             </div>
                             <div class="square2">
-                                <p>7/8</p>
+                                <p></p>
                             </div>
                             <div class="square3">
-                                <p>7/9</p>
+                                <p></p>
                             </div>
                             <div class="square4">
-                                <p>7/10</p>
+                                <p></p>
                             </div>
                             <div class="square5">
-                                <p>7/11</p>
+                                <p></p>
                             </div>
                             <div class="square6">
-                                <p>7/12</p>
+                                <p></p>
                             </div>
                             <div class="square7">
-                                <p>7/13</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,6 @@
                 </div>
             </div>
             <div id="tomato" class="tomato">
-                <!--<h3>Hello Tomato</h3>-->
                 <div class="countDown">
                     <div id="clock" class="clock">25:00</div>
                     
@@ -210,7 +209,6 @@
                         alt="tomato--orange.svg">
                 </div>
             </div>
-            <!--<h3>Hello Tomato</h3>-->
         </main>
     </div>
     <script src="./index.js"></script>

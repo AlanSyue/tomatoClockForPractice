@@ -5,7 +5,7 @@ import * as layout from './layout';
 import * as icon from './icon';
 import $ from 'jquery';
 
-$('document').ready(async function(){
+$('document').ready(async function() {
     await analysis.init();
     await todolist.init();
     await tomato.init();
