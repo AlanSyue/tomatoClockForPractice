@@ -71,7 +71,7 @@ const startServer = () => {
             },
             dailyReport: Array<Report>
         }
-        const DateFormatType: string = 'MM/DD';
+        const DATE_FORMAT: string = 'MM/DD';
         const taskRepository = getRepository(Task);
         const reportStartDate = moment().subtract(6, 'day').format('YYYY-MM-DD');
         const createdTasksPromise = taskRepository.find({
@@ -87,26 +87,26 @@ const startServer = () => {
             .map((v, idx) => idx)
             .reduce((counter, dateDiff) => {
                 const momentObj = moment().subtract(dateDiff, 'day');
-                const report: Report = { date: momentObj.format(DateFormatType), createdTotal: 0, completedTotal: 0 };
-                counter[momentObj.format(DateFormatType)] = report;
+                const report: Report = { date: momentObj.format(DATE_FORMAT), createdTotal: 0, completedTotal: 0 };
+                counter[momentObj.format(DATE_FORMAT)] = report;
                 return counter;
             }, {});
 
         createdTasks.forEach(task => {
-            const date = moment(task.createdAt).format(DateFormatType);
+            const date = moment(task.createdAt).format(DATE_FORMAT);
             const newReport = { ...reportMap[date] };
             newReport.createdTotal += 1;
             reportMap[date] = newReport;
         })
 
         completedTasks.forEach(task => {
-            const date = moment(task.completedAt).format(DateFormatType);
+            const date = moment(task.completedAt).format(DATE_FORMAT);
             const newReport = { ...reportMap[date] };
             newReport.completedTotal += 1;
             reportMap[date] = newReport
         })
 
-        const todayString = moment().format(DateFormatType);
+        const todayString = moment().format(DATE_FORMAT);
         const reposts = Object.values(reportMap);
         const weeklyReport = reposts.reduce((result, rep: Report) => {
             result.createdTotal += rep.createdTotal;
