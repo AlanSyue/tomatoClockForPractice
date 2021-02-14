@@ -4,16 +4,27 @@ import { connectDB } from "./database";
 import { getRepository, MoreThan } from "typeorm";
 import { Task } from "./entity/Task";
 import * as moment from 'moment';
+import * as cors from 'cors';
 
 const startServer = () => {
     // create and setup express app
     const app: express.Application = express();
+    app.use(cors());
     app.use(express.json());
 
     // register routes
     app.get("/api/tasks", async function (req: Request, res: Response) {
+        const status = req.query.filterType;
+        let needFilter: boolean = false;
+        let findObject: object = {};
+        if (status != "") {
+            needFilter = true;
+            findObject = {
+                completed: status == "completed" ? true : false
+            };
+        }
         const taskRepository = getRepository(Task);
-        const tasks = await taskRepository.find();
+        const tasks = await taskRepository.find(findObject);
         res.status(200).json({ status: 200, data: tasks });
     });
 
@@ -34,7 +45,7 @@ const startServer = () => {
 
         let updateData = {};
         if (content) {
-            updateData['updateData'] = content;
+            updateData['content'] = content;
         }
         if (completed) {
             updateData['completed'] = completed;
