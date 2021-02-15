@@ -4,6 +4,9 @@ import { renderTodolist as tomatoRenderTodolist } from '../tomato';
 
 function renderList(array){
     $("#todolist ul").empty();
+    if (typeof array == 'undefined' || array.length <= 0) {
+        return;
+    }
     for (var i = 0; i < array.length; i++) {
         var { id, content, completed } = array[i];
         $("#todolist ul").append(

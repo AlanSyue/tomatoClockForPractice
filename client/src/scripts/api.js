@@ -7,7 +7,7 @@ function callApi(url, method = 'GET', data = {}) {
         url: config.API_URL + url,
         dataType: "json",
         contentType: 'application/json',
-        data: data,
+        data: JSON.stringify(data),
         async: false,
         success: function (res, textStatus, xhr) {
             return res.data;

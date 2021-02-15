@@ -7,7 +7,7 @@ async function getTodolist() {
 
 async function getTodolistByStatus(status) {
     var res = await api.getAllTasks(true, status);
-    return res.data.tasks;
+    return res.data;
 }
 
 async function setFinishTodolist(id) {
