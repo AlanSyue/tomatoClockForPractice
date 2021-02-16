@@ -27,8 +27,11 @@ function drawChart(chartData) {
         },
         bars: 'vertical',
         vAxis: {
-            minValue: 0,
-            textStyle: { color: '#FFFFFF' }
+            viewWindow: {
+                max: 14,
+                min: 0
+            },
+            textStyle: { color: '#FFFFFF' },
         },
         hAxis: {
             textStyle: { color: '#FFFFFF' },
@@ -48,7 +51,7 @@ function drawChart(chartData) {
     chart.draw(data, google.charts.Bar.convertOptions(options));
 }
 
-async function init() {
+async function renderReport() {
     const reportData = await getReport();
     $("#today-total").html(reportData.data.todayReport.createdTotal);
     $("#today-completed").html(reportData.data.todayReport.completedTotal);
@@ -94,6 +97,11 @@ async function init() {
             weekReportData: weekReportData,
         })
     });
+}
+
+async function init() {
+    await renderReport();
+    $('#analysis-report-icon').click(renderReport)
 }
 
 export {
