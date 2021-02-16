@@ -1,20 +1,19 @@
 import $ from "jquery";
 import {
     renderList,
-    createItem
 } from "./todolist/view";
 import {
-    storeNote,
     getTodolist,
     deleteItemById,
     setFinishTodolist as _setFinishTodolist,
     editItemById,
     getTodolistByStatus
 } from "./todolist/model";
+import * as api from '../api';
 
-function init() {
+async function init() {
     //初始化頁面
-    showNotFinishList();
+    await showNotFinishList();
     $(".top-left .left").click(showNotFinishList);
     $(".top-left .right").click(showfinishList);
     $("#add-button").click(addNote);
@@ -23,29 +22,31 @@ function init() {
     $("ul").on("click", ".check-btn", checkItem);
 }
 
-function showNotFinishList() {
+async function showNotFinishList() {
     $(".top-left .left").css("opacity", "0.5");
     $(".top-left .right").css("opacity", "1");
     var status = false;
-    var noteArray = getTodolistByStatus(status);
+    var noteArray = await getTodolistByStatus(status);
     renderList(noteArray);
 }
 
-function showfinishList() {
+async function showfinishList() {
     $(".top-left .left").css("opacity", "1");
     $(".top-left .right").css("opacity", "0.5");
     var status = true;
-    var noteArray = getTodolistByStatus(status);
+    var noteArray = await getTodolistByStatus(status);
     renderList(noteArray);
 }
 
-function addNote() {
+async function addNote() {
     var inputValue = $("#add-text").val();
     $("#add-text").val("");
     if (inputValue == "") {
         return ;
     }
-    storeNote(inputValue);
+    await api.addTask({
+        content: inputValue
+    })
     showNotFinishList();
 }
 
@@ -74,11 +75,11 @@ function editItem() {
                 return "請輸入修改記事";
             }
         }
-    }).then(result => {
+    }).then(async result => {
         if (!result.value) {
             return ;
         }
-        editItemById(id, result.value);
+        await editItemById(id, result.value);
         showNotFinishList();
     });
 }
