@@ -6,7 +6,7 @@ import {
 function drawChart(chartData) {
     const {
         today,
-        lastDay,
+        firstDay,
         weekReportData
     } = chartData;
 
@@ -14,7 +14,7 @@ function drawChart(chartData) {
 
     var options = {
         chart: {
-            title: today + " ~ " + lastDay,
+            title: firstDay + " ~ " + today,
         },
         titleTextStyle: {
             color: '#FFFFFF',
@@ -78,14 +78,14 @@ async function renderReport() {
         ]);
     });
 
-    let today = "";
+    let firstDay = "";
     if (weekReportDateList.length > 0) {
-        today = year + '/' + weekReportDateList.shift();
+        firstDay = year + '/' + weekReportDateList.shift();
     }
 
-    let lastDay = "";
+    let today = "";
     if (weekReportDateList.length > 0) {
-        lastDay = year + '/' + weekReportDateList.pop();
+        today = year + '/' + weekReportDateList.pop();
     }
 
     $("#today-text").html(today);
@@ -93,7 +93,7 @@ async function renderReport() {
     google.charts.setOnLoadCallback(() => {
         drawChart({
             today: today,
-            lastDay: lastDay,
+            firstDay: firstDay,
             weekReportData: weekReportData,
         })
     });
