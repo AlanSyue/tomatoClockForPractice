@@ -19,6 +19,11 @@ const startServer = () => {
         res.status(200).json({ status: 200, data: tasks });
     });
 
+    app.post("/api/tasks", async function (req: Request, res: Response) {
+        const test = 1;
+        res.status(200).json({test: test});
+    });
+
     // start express server
     const port = process.env.PORT || 3000;
     app.listen(port, () => console.log(`API Server is running at port ${port}.`));
