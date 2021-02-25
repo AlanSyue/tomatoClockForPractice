@@ -230,3 +230,4 @@ Testing curl
 ```jsx
 curl -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://yourapiserver/api/reports
 ```
+# wp1092
