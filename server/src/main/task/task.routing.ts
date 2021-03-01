@@ -9,16 +9,16 @@ taskRouter.route('/')
     .get(responseHandler(controller.getTasks))
     .post(
         express.json(),
-        asyncHandler(controller.addTask)
+        responseHandler(controller.addTask)
     );
 
 taskRouter.route('/:id')
     .patch(
         express.json(),
-        asyncHandler(controller.updateTask)
+        responseHandler(controller.updateTask)
     )
     .delete(
-        asyncHandler(controller.removeTask)
+        responseHandler(controller.removeTask)
     );
 
 export default taskRouter;
