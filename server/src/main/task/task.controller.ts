@@ -1,21 +1,22 @@
 import { Request, Response } from 'express';
 import { getRepository } from "typeorm";
 import { Task } from "../../entity/Task";
+import { formatResponse } from "../../common/utils";
+import { HttpStatus } from "../../common/response/response.type";
 import * as moment from "moment";
+import * as taskRepository from "../../repositories/task.repository";
+import { ResponseTaskDTO } from "../../dtos/task.dto";
+import { ResponseObject } from "../../common/response/response.object";
 
-export const getTasks = async function (req: Request, res: Response) {
-    const status = req.query.filterType;
-    let needFilter: boolean = false;
-    let findObject: object = {};
-    if (status != "") {
-        needFilter = true;
-        findObject = {
-            completed: status == "completed" ? true : false
-        };
-    }
-    const taskRepository = getRepository(Task);
-    const tasks = await taskRepository.find(findObject);
-    res.status(200).json({ status: 200, data: tasks });
+export const getTasks = async function (req: Request): Promise<ResponseObject<ResponseTaskDTO[]>> {
+    const {
+        filterType: status = ""
+    } = req.query;
+
+    const isCompleted = status == "completed" ? true : false;
+    const tasks = await taskRepository.getTasks({ isCompleted });
+    const dtos = tasks.map(task => new ResponseTaskDTO(task));
+    return formatResponse(dtos, HttpStatus.OK);
 };
 
 export const addTask = async function (req: Request, res: Response) {
