@@ -14,59 +14,75 @@ const startServer = () => {
         res.status(200).json({ status: 200, data: 'hello world' });
     });
 
+    //get 取得全部待辦事項
     app.get("/api/tasks", async function (req: Request, res: Response) {
         const filterType = req.body.filterType;
-        console.log(req.QueryString["type"]);
-        if(typeof(filterType) === 'string'){
-            const tasks = await getRepository(Task).find();
-            res.status(200).json({ status: 200, data:{tasks} });
+        let results;
+        if(filterType === "" || filterType === "completed" || filterType === "uncompleted"){
+            if(filterType === ""){
+                results = await getRepository(Task).find();
+            }
+            else if(filterType === "completed"){
+                results =  await getRepository(Task).find({where: { completed: true }});
+            }
+            else if(filterType === "uncompleted"){
+                results =  await getRepository(Task).find({where: { completed: false }});
+            }
+            res.status(200).json({ status: 200, data:{results} });
         }
+        else{
+            res.status(400).json({ status: 400, message:"failed getting data"});
+        }
+        
     });
 
     //post 新增待辦事項
-    app.post("/", function (req: Request, res: Response) {
-        res.status(201).json({ status: 201, data: 'post api' });
-    });
-
     app.post("/api/tasks", async function (req: Request, res: Response) {
-        if(req.body){
-            const content = req.body.content;
-            const content_create = await getRepository(Task).create(req.body);
-            const results = await getRepository(Task).save(content_create);
-            res.status(201).json({ status: 201, data: {results} });
+        const content = req.body.content;
+        if(content != null && content !== undefined){
+            try{
+            
+                const content_create = await getRepository(Task).create(req.body);
+                const results = await getRepository(Task).save(content_create);
+                res.status(201).json({ status: 201, data: {results} });
+            }
+            catch(err){
+                res.status(400).json({status: 400, message: "'content' is required parameter."});
+            }
         }
         else{
-            console.log(req.body);//{}
-            res.status(400).json({status: 400, message: "'content' is required parameter."})
+            res.status(400).json({status: 400, message: "'content' is undefined"});
         }
+        
+        
     });
 
     // patch 修改指定待辦事項資料
-    app.patch("/", function (req: Request, res: Response) {
-        res.status(200).json({ status: 200, data: '修改指定待辦事項資料' });
-    });
-
     app.patch("/api/tasks/:id", async function (req: Request, res: Response) {
-        const id = await getRepository(Task).findOne(req.params.id);
-        console.log(id);
-        console.log(req.body);
-        const content_patch = await getRepository(Task).merge(id, req.body);
-        const results = await getRepository(Task).save(content_patch);
-        res.status(200).json({ status: 201, data: {results} });
+        try{
+            const id = await getRepository(Task).findOne(req.params.id);
+            const content_patch = await getRepository(Task).merge(id, req.body);
+            const results = await getRepository(Task).save(content_patch);
+            res.status(200).json({ status: 201, data: {results} });
+        }
+        catch(err){
+            res.status(400).json({ status: 400, message: "request went wrong"});
+        }
+        
     });
 
 
     //delete 刪除待辦事項
-    app.delete("/", function (req: Request, res: Response) {
-        res.status(200).json({ status: 200, data: '刪除' });
-    });
-
     app.delete("/api/tasks/:id", async function (req: Request, res: Response) {
-        const results = await getRepository(Task).delete(req.params.id);
-        res.status(200).json({ status: 200, data: {} });
+        try{
+            const results = await getRepository(Task).delete(req.params.id);
+            res.status(200).json({ status: 200, data: {} });
+        }
+        catch(err){
+            res.status(400).json({ status: 400, message: "delete went wrong"});
+        }
+        
     });
-
-    
 
     // start express server
     const port = process.env.PORT || 3000;
