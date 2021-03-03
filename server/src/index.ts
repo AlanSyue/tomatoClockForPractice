@@ -16,7 +16,8 @@ const startServer = () => {
 
     //get 取得全部待辦事項
     app.get("/api/tasks", async function (req: Request, res: Response) {
-        const filterType = req.body.filterType;
+        const filterType = req.query.filterType;
+        console.log(filterType);
         let results;
         if(filterType === "" || filterType === "completed" || filterType === "uncompleted"){
             if(filterType === ""){
