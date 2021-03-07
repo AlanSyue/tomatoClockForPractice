@@ -19,6 +19,9 @@ jobs:
             cd ~/tomatoClockForPractice/
             git pull
             cd ~/tomatoClockForPractice/client
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install --lts
             npm run build
             cd ~/tomatoClockForPractice/server
             pm2 restart alansyue_server
