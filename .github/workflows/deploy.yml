@@ -16,6 +16,10 @@ jobs:
           username: ${{ secrets.LINODE_USERNAME }}
           key: ${{ secrets.LINODE_SSHKEY }}
           script: |
-            cd tomatoClockForPractice/
-            pwd
+            cd ~/tomatoClockForPractice/
+            git pull
+            cd ~/tomatoClockForPractice/client
+            npm run build
+            cd ~/tomatoClockForPractice/server
+            pm2 restart alansyue_server
 
