@@ -13,6 +13,9 @@ export class Task {
     completed: boolean;
 
     @CreateDateColumn()
+    completedAt: string;
+
+    @CreateDateColumn()
     createdAt: string;
 
     @UpdateDateColumn()
