@@ -8,9 +8,6 @@ const taskRoute = Router();
 export const getTasks = async function (req: Request, res: Response) {
     const filterType:string = String(req.query.filterType);
     const isFilterTypeValid = ["", "completed", "uncompleted"].includes(filterType);
-
-    console.log(filterType);
-    console.log(isFilterTypeValid);
     if(!isFilterTypeValid){
         res.status(400).json({ status: 400, message:"failed getting data"});
     }
@@ -27,26 +24,6 @@ export const getTasks = async function (req: Request, res: Response) {
         tasks = await getRepository(Task).find();
         res.status(200).json({ status: 200, tasks });
     }
-    
-
-    // let tasks;
-    // if(filterType === "" || filterType === "completed" || filterType === "uncompleted"){
-    //     if(filterType === ""){
-    //         tasks = await getRepository(Task).find();
-    //     }
-    //     else if(filterType === "completed"){
-    //         tasks =  await getRepository(Task).find({where: { completed: true }});
-    //     }
-    //     else if(filterType === "uncompleted"){
-    //         tasks =  await getRepository(Task).find({where: { completed: false }});
-    //     }
-    //     res.status(200).json({ status: 200, tasks });
-    // }
-    // else{
-    //     console.log("hi");
-    //     res.status(400).json({ status: 400, message:"failed getting data"});
-    // }
-    
 };
 
 //post 新增待辦事項
