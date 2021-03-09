@@ -1,0 +1,28 @@
+name: project CICD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: deploy to vm
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.LINODE_HOST }}
+          username: ${{ secrets.LINODE_USERNAME }}
+          key: ${{ secrets.LINODE_SSHKEY }}
+          script: |
+            cd ~/tomatoClockForPractice/
+            git pull
+            cd ~/tomatoClockForPractice/client
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install --lts
+            npm run build
+            cd ~/tomatoClockForPractice/server
+            pm2 restart alansyue_server
+
