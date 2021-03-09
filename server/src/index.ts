@@ -4,12 +4,14 @@ import { connectDB } from "./database";
 import { getRepository } from "typeorm";
 import { Task } from "./entity/Task";
 import taskRoute from "./main /task/task.routing";
+import reportRoute from "./main /report/report.routing";
 
 const startServer = () => {
     // create and setup express app
     const app: express.Application = express();
     app.use(express.json());
     app.use('/api/tasks', taskRoute);
+    app.use('/api/reports', reportRoute);
 
     // app.use(function(err, req, res, next){
     //     console.error(err.stack);
