@@ -11,22 +11,10 @@ const startServer = () => {
     app.use(express.json());
     app.use('/api/tasks', taskRoute);
 
-<<<<<<< Updated upstream
-    // register routes
-    app.get("/", function (req: Request, res: Response) {
-        res.status(200).json({ status: 200, data: 'hello world' });
-    });
-
-    app.get("/api/tasks", async function (req: Request, res: Response) {
-        const tasks = await getRepository(Task).find();
-        res.status(200).json({ status: 200, data: tasks });
-    });
-=======
     // app.use(function(err, req, res, next){
     //     console.error(err.stack);
     //     res.status(500).send('something broke');
     // })
->>>>>>> Stashed changes
 
     // start express server
     const port = process.env.PORT || 3000;
