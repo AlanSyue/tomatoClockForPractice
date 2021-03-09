@@ -12,6 +12,9 @@ export class Task {
     @Column({ default: false })
     completed: boolean;
 
+    @Column({ default:null })
+    completedAt: Date;
+
     @CreateDateColumn()
     createdAt: string;
 
