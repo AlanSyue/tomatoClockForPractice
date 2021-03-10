@@ -68,14 +68,14 @@ export const getReports = async function (req: Request, res: Response){
     //set dailyreport value
     for (let i = 6 ; i >= 0 ; i--){
         const pDate = pastDate(today,i);
-        const createdNum = tasks.filter(element => formatTime(element.createdAt as unknown as Date) === pDate).length 
-        const completedNum = completedTasks.filter(element => formatTime(element.completedAt as unknown as Date) === pDate).length
+        const createdNum = tasks.filter(element => formatTime(element.createdAt as unknown as Date) === pDate).length;
+        const completedNum = completedTasks.filter(element => formatTime(element.completedAt as unknown as Date) === pDate).length;
         results.dailyReport.push({
             date: pDate,
             createdTotal:createdNum,
             completedTotal:completedNum
         })
     }
-    res.status(200).json({ status: 200, data: results});   
+    res.status(200).json({ status: 200, data: results});
 }
 export default getReports;
