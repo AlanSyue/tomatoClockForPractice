@@ -7,7 +7,8 @@
     "start": "ts-node ./src/index.ts",
     "start:dev": "nodemon --exec ts-node ./src/index.ts",
     "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.json",
-    "test": "jest --coverage"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
