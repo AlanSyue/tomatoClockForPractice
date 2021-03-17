@@ -1,6 +1,4 @@
-import { Request, Response } from 'express';
-import { getRepository } from "typeorm";
-import { Task } from "../../entity/Task";
+import { Request } from 'express';
 import { formatResponse } from "../../common/utils";
 import { HttpStatus } from "../../common/response/response.type";
 import * as taskRepository from "../../repositories/task.repository";
@@ -40,4 +38,8 @@ export const removeTask = async function (req: Request): Promise<ResponseObject<
         (error as any).status = 400;
         throw error;
     }
+};
+
+export const test = async function (req: Request): Promise<ResponseObject<any>> {
+    return formatResponse(req.body, HttpStatus.OK);
 };
