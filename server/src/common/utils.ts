@@ -14,11 +14,13 @@ export const formatResponse = (data: any, status = HttpStatus.INTERNAL_ERROR): R
     return responseObject;
 }
 
-export const asyncHandler = fn => (req, res, next) => {
-    return Promise
-        .resolve(fn(req, res, next))
-        .catch(next);
-};
+export const asyncHandler = (fn: any) => {
+    return (req: Request, res: Response, next: NextFunction) => {
+        return Promise
+            .resolve(fn(req, res, next))
+            .catch(next);
+    }
+}
 
 export const responseHandler = (method: (req: Request, res: Response, next: NextFunction) => Promise<ResponseObject<any>>) => {
     return (req: Request, res: Response, next: NextFunction) => {

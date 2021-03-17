@@ -4,7 +4,7 @@ export class ResponseDTOBase {
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
 
-    constructor(dto) {
+    constructor(dto: any) {
         this._id = dto._id;
         this.createdAt = dto.createdAt;
         this.updatedAt = dto.updatedAt;

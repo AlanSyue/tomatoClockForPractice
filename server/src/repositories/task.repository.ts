@@ -1,6 +1,6 @@
 import { Repository, getRepository } from "typeorm";
 import { Task } from "../entity/Task";
-import * as moment from "moment";
+import moment from "moment";
 
 interface IGetTaskParams {
     isCompleted: boolean
@@ -28,7 +28,7 @@ interface IUpdateTaskParams {
     content?: string,
     completed?: string,
 }
-export const updateTask = async function (params: IUpdateTaskParams): Promise<Task> {
+export const updateTask = async function (params: IUpdateTaskParams): Promise<Task | null> {
     const repository: Repository<Task> = getRepository(Task);
     const {
         id,
@@ -36,7 +36,7 @@ export const updateTask = async function (params: IUpdateTaskParams): Promise<Ta
         completed
     } = params;
 
-    let updateData = {};
+    let updateData: any = {};
     if (content !== undefined) {
         updateData['content'] = content;
     }
@@ -46,6 +46,9 @@ export const updateTask = async function (params: IUpdateTaskParams): Promise<Ta
     }
 
     const task = await repository.findOne(id);
+    if(!task){
+        return null;
+    }
     repository.merge(task, updateData);
     return await repository.save(task);
 };

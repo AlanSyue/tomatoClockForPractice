@@ -24,6 +24,9 @@ export const addTask = async function (req: Request): Promise<ResponseObject<Res
 
 export const updateTask = async function (req: Request): Promise<ResponseObject<ResponseTaskDTO>> {
     const task = await taskRepository.updateTask(req.body);
+    if(!task){
+        throw Error("Update fails.");
+    }
     const dto = new ResponseTaskDTO(task)
     return formatResponse(dto, HttpStatus.OK);
 };

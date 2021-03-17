@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository, MoreThan } from "typeorm";
 import { Task } from "../../entity/Task";
-import * as moment from 'moment';
+import moment from 'moment';
 
 interface Report {
     date: string,
@@ -23,22 +23,13 @@ interface ResponseData {
     dailyReport: Array<Report>
 }
 
-export const getReport = async function (req: Request, res: Response) {
+export const formatReport = (createdTasks: Array<Task>, completedTasks: Array<Task>): ResponseData => {
     const DATE_FORMAT: string = 'MM/DD';
-    const taskRepository = getRepository(Task);
-    const reportStartDate = moment().subtract(6, 'day').format('YYYY-MM-DD');
-    const createdTasksPromise = taskRepository.find({
-        createdAt: MoreThan(reportStartDate)
-    });
-    const completedTasksPromise = taskRepository.find({
-        completedAt: MoreThan(reportStartDate)
-    });
-    const [createdTasks, completedTasks] = await Promise.all([createdTasksPromise, completedTasksPromise]);
 
     const reportMap: ReportMap = Array(7)
         .fill('')
         .map((v, idx) => idx)
-        .reduce((counter, dateDiff) => {
+        .reduce((counter: any, dateDiff: number) => {
             const momentObj = moment().subtract(dateDiff, 'day');
             const report: Report = { date: momentObj.format(DATE_FORMAT), createdTotal: 0, completedTotal: 0 };
             counter[momentObj.format(DATE_FORMAT)] = report;
@@ -78,5 +69,20 @@ export const getReport = async function (req: Request, res: Response) {
         },
         dailyReport: reposts.sort(sortByDateAsc)
     }
+    return responseData;
+}
+
+export const getReport = async function (req: Request, res: Response) {
+    const taskRepository = getRepository(Task);
+    const reportStartDate = moment().subtract(6, 'day').format('YYYY-MM-DD');
+    const createdTasksPromise = taskRepository.find({
+        createdAt: MoreThan(reportStartDate)
+    });
+    const completedTasksPromise = taskRepository.find({
+        completedAt: MoreThan(reportStartDate)
+    });
+    const [createdTasks, completedTasks] = await Promise.all([createdTasksPromise, completedTasksPromise]);
+
+    const responseData = formatReport(createdTasks, completedTasks);
     res.status(200).json({ status: 200, data: responseData });
 };

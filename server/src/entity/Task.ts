@@ -4,20 +4,20 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 export class Task {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column({ type: "varchar", length: 200 })
-    content: string;
+    content!: string;
 
     @Column({ default: false })
-    completed: boolean;
+    completed!: boolean;
 
     @Column({ type: "timestamp", nullable: true })
-    completedAt: string;
+    completedAt!: string;
 
     @CreateDateColumn()
-    createdAt: string;
+    createdAt!: string;
 
     @UpdateDateColumn()
-    updatedAt: string;
+    updatedAt!: string;
 }
