@@ -40,7 +40,7 @@ const patchTasks = async function (req: Request, res: Response) {
         if(isBoolean(req.body.completed)){
             task.completed = req.body.completed;
             if(req.body.completed == true)
-                task.completedAt = new Date(new Date().toISOString())
+                task.completedAt = new Date().toISOString()
         }
         const results = await taskRepository.save(task);
         res.status(200).json({ status: 200, data: results });

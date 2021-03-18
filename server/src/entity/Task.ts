@@ -13,7 +13,7 @@ export class Task {
     completed: boolean;
 
     @Column({ default:null })
-    completedAt: Date;
+    completedAt: string;
 
     @CreateDateColumn()
     createdAt: string;
