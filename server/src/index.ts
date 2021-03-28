@@ -1,9 +1,8 @@
 import * as express from 'express';
 import * as cors from 'cors'
-
 import { connectDB } from "./database";
-import taskRoute from './tasks/task.routing'
-import reportsRoute from './reports/report.routing'
+import apiRouter from "./main/api.routing"
+import defaultExceptionHandler from './exception/default.exception'
 
 const startServer = () => {
 
@@ -17,13 +16,10 @@ const startServer = () => {
     app.use(cors());
 
     // Routing
-    app.use('/api/tasks',taskRoute);
-    app.use('/api/reports',reportsRoute);
+    app.use('/api',apiRouter);
 
     // Error Handling
-    app.use((err,req:express.Request,res:express.Response,next)=>{
-        res.status(500).send('Something wrong');
-    })
+    app.use(defaultExceptionHandler)
 
     // Start express server
     const port = process.env.PORT || 3000;
@@ -32,7 +28,7 @@ const startServer = () => {
 
 (async () => {
     await connectDB();
-    await startServer();
+    startServer();
 })()
 
 
