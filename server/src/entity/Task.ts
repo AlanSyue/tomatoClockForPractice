@@ -12,7 +12,7 @@ export class Task {
     @Column({ default: false })
     completed: boolean;
 
-    @Column({ type: 'timestamp' })
+    @Column({ type: 'timestamp', default: null})
     completedAt: Date;
 
     @CreateDateColumn()
