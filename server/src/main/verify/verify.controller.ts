@@ -17,12 +17,14 @@ export const verify = async function (req:Request, res:Response, next:NextFuncti
         }
         else{
             req.body.verified = true;
+            console.log(req.body.verified);
             const timestamp = moment().valueOf();
             const formattedTime = moment(timestamp).format('YYYY-MM-DDTHH:mm:ss.SSS')
             req.body.verifiedAt = formattedTime;
             const id = await userRepo.findOne({where: { id: req.query.id }});
             const userVerified = userRepo.merge(id, req.body);
             const results = userRepo.save(userVerified);
+            res.status(200).json({status:200, message: "signup success"});
         }
         
         next();
