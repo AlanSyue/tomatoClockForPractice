@@ -21,7 +21,7 @@ export class Users {
     @Column({ default: false })
     verified: boolean;
 
-    @Column({ type: "timestamp"})
+    @Column({ type: "timestamp", nullable: true})
     verifiedAt: string;
 
     @CreateDateColumn()

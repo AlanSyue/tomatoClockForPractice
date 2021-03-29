@@ -11,6 +11,6 @@ authRouter.route("/verify")
     .get(controller.verify);
 
 authRouter.route("/signin")
-    .get(controller.signin);
+    .post(controller.signin);
 
 export default authRouter
