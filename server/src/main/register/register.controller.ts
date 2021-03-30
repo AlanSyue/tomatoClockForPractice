@@ -1,13 +1,14 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { getRepository } from 'typeorm';
 import { User } from '../../entity/User';
+import { sendEmail } from './mail.controller';
 
 var errors = [];
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 function generateAccessToken(username) {
-  return jwt.sign(username, 'mynewproject', { expiresIn: '2000000000000000000s' });
+  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '2000000000000000000s' });
 }
 
 function hasCapital(str)

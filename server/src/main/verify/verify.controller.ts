@@ -11,7 +11,7 @@ export const verify = async function (req:Request, res:Response, next:NextFuncti
     const token = req.query.verifiedCode;
     if (!token)
         return res.status(403).json({status:403, auth: false, message: 'No token provided.' });
-    jwt.verify(token,'mynewproject', async function(err, decoded) {
+    jwt.verify(token,process.env.TOKEN_SECRET, async function(err, decoded) {
         if (err){
             return res.status(500).json({status:500, auth: false, message: err });
         }

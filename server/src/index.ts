@@ -5,7 +5,7 @@ import reportRoute from "./main/report/report.routing";
 import loginRoute from "./main/login/login.routing";
 import registerRoute from "./main/register/register.routing";
 import verifyRoute from "./main/verify/verify.routing";
-
+require('dotenv').config();
 const startServer = () => {
     // create and setup express app
     const app: express.Application = express();
