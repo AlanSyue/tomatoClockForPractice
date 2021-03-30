@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { getRepository } from 'typeorm';
 import { User } from '../../../entity/User';
+import * as EmailValidator from 'email-validator';
 
 var errors = [];
 const jwt = require('jsonwebtoken');
@@ -8,11 +9,6 @@ const bcrypt = require('bcryptjs');
 
 function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '2000000000000000000s' });
-}
-
-function validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
 }
 
 function hasCapital(str)
@@ -54,7 +50,7 @@ export const register = async function (req: Request, res: Response, next: NextF
         errors.push("密碼需包含英文大小寫和數字，長度超過8位數");
     }
 
-    if(validateEmail(userEmail) == false){
+    if(EmailValidator.validate(userEmail) == false){
         errors.push("email 格式錯誤");
     }
 
