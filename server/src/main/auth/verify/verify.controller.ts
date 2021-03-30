@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import { getRepository } from 'typeorm';
-import { User } from '../../entity/User';
+import { User } from '../../../entity/User';
 
 const jwt = require('jsonwebtoken');
 var moment = require('moment');
