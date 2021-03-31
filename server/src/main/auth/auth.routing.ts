@@ -1,7 +1,5 @@
 import { Router } from "express";
-import { register } from "./register/register.controller";
-import { login } from "./login/login.controller";
-import { verify } from "./verify/verify.controller";
+import * as controller from "./auth.controller";
 
 const authRoute = Router();
 const asyncHandler = (action) => {
@@ -13,14 +11,14 @@ const asyncHandler = (action) => {
 }
 authRoute
     .route("/login")
-    .post(asyncHandler(login));
+    .post(asyncHandler(controller.login));
 
 authRoute
     .route("/verify")
-    .get(asyncHandler(verify));
+    .get(asyncHandler(controller.verify));
 
 authRoute
     .route("/register")
-    .post(asyncHandler(register));
+    .post(asyncHandler(controller.register));
 
 export default authRoute;
