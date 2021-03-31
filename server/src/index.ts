@@ -4,6 +4,7 @@ import taskRoute from "./main/task/task.routing";
 import reportRoute from "./main/report/report.routing";
 import authRoute from "./main/auth/auth.routing";
 require('dotenv').config();
+
 const startServer = () => {
     // create and setup express app
     const app: express.Application = express();
