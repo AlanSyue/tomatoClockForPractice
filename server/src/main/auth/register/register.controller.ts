@@ -4,7 +4,6 @@ import { User } from '../../../entity/User';
 import * as EmailValidator from 'email-validator';
 import { body, validationResult, check } from 'express-validator';
 
-var errors = [];
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -40,28 +39,18 @@ export const register = async function (req: Request, res: Response, next: NextF
     const userEmail = req.body.email;
 
     const checkEmail = await check('email').notEmpty().isEmail().run(req, { dryRun: true });
-    console.log(checkEmail);
     if(!checkEmail.isEmpty()){
         res.status(401).json({status:401, errors: "email 格式錯誤" });
     }
-
-    const checkPassword = await check('password').isLength({ min: 8 }).run(req, { dryRun: true });
+    
+    const checkPassword = await check('password').notEmpty().isLength({ min: 8 }).run(req, { dryRun: true });
     if(!checkPassword.isEmpty() || hasCapital(password)==false || hasLowercase(password)==false || hasNumber(password) == false){
         res.status(401).json({status:401, errors: "密碼需包含英文大小寫和數字，長度超過8位數" });
     }
 
-    if(!(userEmail && password)){
-        res.status(401).json({status:401, errors: "Data not formatted properly" });
-    }
-    
     const emailRepo = await userRepo.find({where: { email: userEmail }});
     if(emailRepo.length != 0){
         res.status(401).json({status:401, errors: "email has been used" });
-    }
-
-    if(errors.length != 0){
-        res.status(401).json({status:401, error: errors });
-        errors = [];
     }
 
     else{
