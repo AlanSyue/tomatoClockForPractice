@@ -22,7 +22,7 @@ export class User {
     verified: boolean;
 
     @Column({ type: 'timestamp', default:null })
-    verifiedAt: Date;
+    verifiedAt: string;
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: string;

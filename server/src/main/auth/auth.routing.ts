@@ -1,5 +1,6 @@
 import { Router } from "express";
-import * as controller from "./auth.controller";
+import * as controller from './auth.controller';
+import { registerPipe } from './auth.pipe';
 
 const authRoute = Router();
 const asyncHandler = (action) => {
@@ -19,6 +20,6 @@ authRoute
 
 authRoute
     .route("/register")
-    .post(asyncHandler(controller.register));
+    .post(registerPipe,asyncHandler(controller.register));
 
 export default authRoute;
