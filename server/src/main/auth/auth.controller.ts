@@ -54,20 +54,16 @@ export const register = async function (req: Request, res: Response) {
     subject: "Email Verification", // Subject line
     text: ` Your verifiedCode is: ${verifiedCode} `, // plain text body
   };
-  console.log(process.env.USEREMAIL);
-  console.log(process.env.PASSWORD);
 
   transporter.sendMail(mailOptions, function (err, response) {
     if (err) {
-      console.log("something wrong");
-      console.log(err);
     } else {
       res.status(200).json({ status: 200, messgae: "please verify email" });
     }
   });
 };
 
-export const login = async function (req: Request, res: Response) {
+export const signin = async function (req: Request, res: Response) {
   const { email, password } = req.body;
   const userRepo = getRepository(User);
   const user = await getRepository(User).findOne({ email: email });
@@ -83,8 +79,12 @@ export const login = async function (req: Request, res: Response) {
   if (!validPassword) {
     return res.status(401).json({ status: 401, errors: "password incorrect" });
   }
-  res.status(200).json({ status: 200, data: "" });
-  const token = jwt.sign(email, process.env.TOKEN_SECRET, {
-    expiresIn: "10hr",
-  });
+  const payload = {
+      id: user.id,
+      name: user.name,
+      email: user.email
+  }
+  const token = jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: '1h' });
+  res.status(200).json({ status: 200, data: token });
+  
 };

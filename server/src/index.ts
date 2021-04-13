@@ -3,7 +3,7 @@ import { connectDB } from "./database";
 import taskRoute from "./main/task/task.routing";
 import reportRoute from "./main/report/report.routing";
 import authRoute from "./main/auth/auth.routing";
-require('dotenv').config();
+import userRoute from "./main/user/user.routing";
 
 const startServer = () => {
     // create and setup express app
@@ -12,6 +12,7 @@ const startServer = () => {
     app.use('/api/tasks', taskRoute);
     app.use('/api/reports', reportRoute);
     app.use('/api/auth', authRoute);
+    app.use('/api/user', userRoute);
 
     app.use(function(err, req, res, next){
         console.error(err.stack);
