@@ -8,10 +8,8 @@ export const checkJWT = (req: Request, res: Response, next: NextFunction) => {
   // 認證 token 並且 get data
   try {
     jwtPayload = jwt.verify(token, process.env.TOKEN_SECRET);
-    console.log(jwtPayload);
     res.locals.jwtPayload = jwtPayload;
   } catch (error) {
-    console.log(error.message);
     if (error.message == "invalid token") {
       res.status(401).json({ status: 401, message: "link incorrect" });
     }
