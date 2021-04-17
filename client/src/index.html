@@ -13,8 +13,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" >
         <nav>
+            <span id="user-name" class="auth">
+
+            </span>
+            <button id="login" class="auth unstyled-button">
+                登入
+            </button>
+            <button id="register" class="auth last unstyled-button">
+                註冊
+            </button>
+            <button id="logout" class="auth last unstyled-button">
+                登出
+            </button>
             <span id="nowDatetimeFront" class="now-datetime front">2020.03.20</span>
             <span id="nowDatetimeBack" class="now-datetime back">星期六13:38</span>
         </nav>
@@ -179,6 +191,44 @@
                 </div>
             </div>
         </main>
+    </div>
+    <div id="register-card" class="auth-card">
+        <section>
+            <div class="register-wrapper">
+                <a class="close"></a>
+                <div class="register-block">
+                    <h3 class="register-title">Create an account</h3>
+                    <p>Create an account using the form below.</p>
+                    <form onsubmit="return false;">
+                        <input id="register-nickname" type="text" placeholder="Enter your nickname" />
+                        <input id="register-email" type="email" placeholder="Enter your email" />
+                        <input id="register-password" type="password" placeholder="Enter your password" />
+                        <input id="register-submit" type="submit" value="Create my account" />
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="login-card" class="auth-card">
+        <section>
+            <div class="register-wrapper">
+                <a class="close"></a>
+                <div class="register-block">
+                    <h3 class="register-title">Login</h3>
+                    <p>Don't have an account yet? 
+                        <a id="register-link">
+                            Register
+                        </a>
+                         now!
+                    </p>
+                    <form onsubmit="return false;">
+                        <input id='login-email' type="email" placeholder="Enter your email" />
+                        <input id='login-password' type="password" placeholder="Enter your password" />
+                        <input id='login-submit' type="submit" value="Submit" />
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="./index.js"></script>

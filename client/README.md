@@ -11,7 +11,7 @@ This project uses the following tools. Go check them out if you don't have them 
 
 ```
 git clone https://github.com/AlanSyue/tomatoClockForPractice.git
-cd tomatoClockForPractice/client
+cd tomatoClockForPractice
 npm install
 npm run start
 ```
