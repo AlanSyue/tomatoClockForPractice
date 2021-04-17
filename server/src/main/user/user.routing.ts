@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as controller from "./user.contoller";
-import { checkJWT } from "./checkJWT";
+import { checkJWT } from "../common/checkJWT";
 
 const userRoute = Router();
 const asyncHandler = (action) => {

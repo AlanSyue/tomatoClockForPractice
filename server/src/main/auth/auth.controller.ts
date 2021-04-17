@@ -75,7 +75,7 @@ export const signin = async function (req: Request, res: Response) {
       .status(401)
       .json({ status: 401, errors: "please verify your email" });
   }
-  const validPassword = await bcrypt.compare(password, user.password);
+  const validPassword = await bcrypt.compareSync(password, user.password);
   if (!validPassword) {
     return res.status(401).json({ status: 401, errors: "password incorrect" });
   }
