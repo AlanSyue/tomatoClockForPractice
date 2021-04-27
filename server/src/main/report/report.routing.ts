@@ -1,5 +1,6 @@
 import { Router } from "express";
 import * as controller from "./report.controller";
+import { checkJWT } from "../../common/checkJWT";
 
 const reportRoute = Router();
 const asyncHandler = (action) => {
@@ -11,6 +12,6 @@ const asyncHandler = (action) => {
 }
 reportRoute
     .route("/")
-    .get(asyncHandler(controller.getReports));
+    .get(checkJWT, asyncHandler(controller.getReports));
 
 export default reportRoute;

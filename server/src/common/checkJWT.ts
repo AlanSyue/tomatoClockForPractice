@@ -20,11 +20,5 @@ export const checkJWT = (req: Request, res: Response, next: NextFunction) => {
       res.status(401).json({ status: 401, message: "please login" });
     }
   }
-
-  const { id, name, email } = jwtPayload;
-  const newToken = jwt.sign({ id, name, email }, process.env.TOKEN_SECRET, {
-    expiresIn: "1h",
-  });
-  res.setHeader("token", newToken);
   next();
 };

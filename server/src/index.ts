@@ -26,5 +26,5 @@ const startServer = () => {
 
 (async () => {
     await connectDB();
-    await startServer();
+    startServer();
 })();
