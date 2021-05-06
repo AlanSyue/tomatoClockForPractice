@@ -10,7 +10,6 @@ export const getTasks = async function (req: Request, res: Response): Promise<Re
         filterType: status = ""
     } = req.query;
     const user = res.locals.user;
-    console.log(user);
     const isCompleted = status == "completed" ? true : false;
     const tasks = await taskRepository.getTasks({ user, isCompleted });
     const dtos = tasks.map(task => new ResponseTaskDTO(task));
