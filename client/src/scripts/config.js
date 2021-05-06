@@ -1,4 +1,4 @@
-var API_URL = 'http://localhost:3000/api'
+var API_URL = 'https://alansyue-api.dev.newideas.com.tw/api'
 
 export {
     API_URL
