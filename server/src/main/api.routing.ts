@@ -8,7 +8,7 @@ import { authMiddleware } from '../common/auth';
 const apiRouter = Router();
 
 apiRouter.use('/auth', authRoute);
-apiRouter.use('/tasks', taskRoute);
+apiRouter.use('/tasks', authMiddleware, taskRoute);
 apiRouter.use('/reports', reportRoute);
 apiRouter.use('/user', authMiddleware, userRoute);
 
