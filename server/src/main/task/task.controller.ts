@@ -42,7 +42,3 @@ export const removeTask = async function (req: Request): Promise<ResponseObject<
         throw error;
     }
 };
-
-export const test = async function (req: Request): Promise<ResponseObject<any>> {
-    return formatResponse(req.body, HttpStatus.OK);
-};
